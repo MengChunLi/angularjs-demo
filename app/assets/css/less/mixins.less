@@ -1,0 +1,25 @@
+.clearfix() {
+  &:before,
+  &:after {
+    content: " "; // 1
+    display: table; // 2
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+.btn(@color; @width:145px){
+    width: @width;
+    background-color: @color;
+}
+
+.theme(@color, @light-color, @dark-color){
+    background-color: @light-color;
+    .text-title{
+        color: @dark-color;
+    }
+    .btn-back{
+        .btn(@color; @btn-lg);
+    }
+}

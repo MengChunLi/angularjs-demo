@@ -1,0 +1,21 @@
+@import "./var.less";
+@import "./mixins.less";
+
+.btn{
+    display: block;
+    font-size: 16px;
+    text-align: center;
+    padding: 25px 0;
+    border-radius: 3px;
+    color: white;
+    text-decoration: none;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.btn-red{
+    .btn(@red);
+}
+
+.btn-green{
+    .btn(@green);
+}

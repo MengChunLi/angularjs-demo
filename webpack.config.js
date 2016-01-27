@@ -4,12 +4,15 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
   entry: {
-    index: ["./app/assets/css/index.js"],
-    vendor: ["./app/assets/js/common.js"],
-    app: ["./app/assets/js/main.js"]
+    "base": ["./app/assets/css/base.js"],
+    "theme-red": ["./app/assets/css/theme-red.js"],
+    "theme-green": ["./app/assets/css/theme-green.js"],
+    "vendor": ["./app/assets/js/common.js"],
+    "app": ["./app/assets/js/main.js"]
   },
   output: {
     path: path.resolve(__dirname, "build"),
+    publicPath: "/app",
     filename: "./javascripts/[name].bundle.js"
   },
   module:  {
