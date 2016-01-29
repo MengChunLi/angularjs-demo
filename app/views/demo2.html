@@ -25,12 +25,12 @@
                         </div>
                         <div class="tr tr-gray">
                             <div class="td">
-                                <select ng-model="genderSelected" ng-options="gender.text for gender in genders track by gender.id">
+                                <select ng-model="genderSelected" ng-options="g.text for g in genders track by g.id" ng-change="updateOptions()">
                                     <option value="">Choose a gender</option>
                                 </select>
                             </div>
                             <div class="td">
-                                <select ng-model="percentageSelected" ng-options="percentage.text for percentage in percentages track by percentage.id">
+                                <select ng-model="percentageSelected" ng-options="p.text disable when p.isDisable == true for p in percentages track by p.value">
                                     <option value="">Choose a percentage</option>
                                 </select>
                             </div>
