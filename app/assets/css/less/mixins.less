@@ -9,9 +9,8 @@
   }
 }
 
-.btn(@color; @width:145px){
-    width: @width;
-    background-color: @color;
+.btnSize(@padding){
+    padding: @padding;
 }
 
 .theme(@color, @light-color, @dark-color){
@@ -20,6 +19,6 @@
         color: @dark-color;
     }
     .btn-back{
-        .btn(@color; @btn-lg);
+        background-color: @color;
     }
 }

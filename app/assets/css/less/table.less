@@ -1,0 +1,37 @@
+@import "./var.less";
+.table{
+    display: table;
+    width: 100%;
+    .tr{
+        display: table-row;
+        .td, .th{
+            display: table-cell;
+            vertical-align: middle;
+        }
+    }
+    .tr.hide{
+        display: none;
+    }
+    .tr.active{
+        display: table-row;
+    }
+}
+
+.table-simple{
+    .th{
+        font-weight: bold;
+        border-bottom: 2px solid @gray;
+        padding: 15px 0;
+    }
+    .td{
+        padding: 15px 0;
+        border-bottom: 1px solid @gray;
+    }
+    .tr:last-child{
+        border-bottom: none;
+    }
+}
+
+.tr-gray{
+    background-color: @light-gray;
+}

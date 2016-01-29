@@ -1,1 +1,4 @@
-require('jquery');
+module.exports = function () {
+  /* JS */
+  require('angular');
+};

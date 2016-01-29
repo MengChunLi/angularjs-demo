@@ -5,17 +5,38 @@
     display: block;
     font-size: 16px;
     text-align: center;
-    padding: 25px 0;
     border-radius: 3px;
     color: white;
     text-decoration: none;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+
+}
+
+.btn-sm{
+    .btnSize(15px 20px);
+}
+
+.btn-lg{
+    .btnSize(25px 20px);
 }
 
 .btn-red{
-    .btn(@red);
+    background-color: @red;
+    &:hover,&:focus{
+        background-color: lighten(@red, 10%);
+    }
 }
 
 .btn-green{
-    .btn(@green);
+    background-color: @green;
+    &:hover,&:active,&:focus{
+        background-color: lighten(@green, 10%);
+    }
+}
+
+.btn-gray{
+    background-color: @dark-gray;
+    &:hover,&:active,&:focus{
+        background-color: lighten(@dark-gray, 10%);
+    }
 }
