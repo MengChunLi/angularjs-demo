@@ -18,20 +18,10 @@
                             <div class="th th-percentage">Percentage</div>
                             <div class="th th-remove"></div>
                         </div>
-                        <!-- <div class="tr" ng-repeat="item in items | filter: {genderSelected.text}">
-                            <div class="td">{{item.gender}}</div>
-                            <div class="td">{{item.percentage}}</div>
-                            <div class="td"><button class="btn btn-sm btn-gray">Remove</button></div>
-                        </div> -->
-                        <div class="tr hide" ng-class="{active: female}">
-                            <div class="td">{{female.gender}}</div>
-                            <div class="td">{{female.percent}}</div>
-                            <div class="td"><button class="btn btn-sm btn-gray" ng-click="removeRow()">Remove</button></div>
-                        </div>
-                        <div class="tr hide" ng-class="{active: male}">
-                            <div class="td">{{male.gender}}</div>
-                            <div class="td">{{male.percent}}</div>
-                            <div class="td"><button class="btn btn-sm btn-gray" ng-click="removeRow()">Remove</button></div>
+                        <div class="tr" ng-repeat="item in items">
+                            <div class="td">{{item.gender.text}}</div>
+                            <div class="td">{{item.percentage.text}}</div>
+                            <div class="td"><button class="btn btn-sm btn-gray" ng-click="remove(item)">Remove</button></div>
                         </div>
                         <div class="tr tr-gray">
                             <div class="td">

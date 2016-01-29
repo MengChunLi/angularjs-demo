@@ -24,33 +24,34 @@ module.exports = angular.module('app', [])
   ];
 
 
-  // $scope.items = [{ 
-  //     'gender' : $scope.genders[1].text,
-  //     'percentage' : $scope.percentages[6].text
-  //   }];
-  $scope.female = null;
-  $scope.male = null;
-  $scope.addRow = () => {
-    if($scope.genderSelected){
+  $scope.items = [];
 
-   
-    if($scope.genderSelected.id === 'F'){
-       $scope.female = {
-        'gender': $scope.genderSelected.text,
-        'percent': $scope.percentageSelected.text
-       };
-    }else if($scope.genderSelected.id === 'M'){
-      $scope.male = {
-        'gender': $scope.genderSelected.text,
-        'percent': $scope.percentageSelected.text
-       };
+  //add
+  $scope.addRow = () => {
+    let isDuplicate = false;
+    if($scope.items.length > 0){
+      for (let i = 0; i < $scope.items.length; i++) {
+        if($scope.items[i].gender.id === $scope.genderSelected.id){
+          isDuplicate = true;
+          $scope.items[i] = { 
+            'gender' : $scope.genderSelected,
+            'percentage' : $scope.percentageSelected
+          };
+        }
+      };
     }
+    if(!isDuplicate){
+      $scope.items.push({ 
+        'gender' : $scope.genderSelected,
+        'percentage' : $scope.percentageSelected
+      });
     }
-    
-    // $scope.items.push({ 
-    //   'gender' : $scope.genderSelected.text,
-    //   'percentage' : $scope.percentageSelected.text
-    // });
+  };
+
+  //remove
+  $scope.remove = (item) => { 
+    let index = $scope.items.indexOf(item);
+    $scope.items.splice(index, 1);     
   };
 });
 
