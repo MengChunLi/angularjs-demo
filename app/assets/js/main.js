@@ -29,8 +29,22 @@ module.exports = angular.module('app', [])
 
   //add item
   $scope.addRow = () => {
+
+    // check if genderSelected is defined, or show required text
+    if(!$scope.genderSelected){
+      $scope.genderRequired = 'active';
+    }else{
+      $scope.genderRequired = '';
+    }
+    // check if percentageSelected is defined, or show required text
+    if(!$scope.percentageSelected){
+      $scope.percentageRequired = 'active';
+    }else{
+      $scope.percentageRequired = '';
+    }
+
     let isDuplicate = false;
-    if($scope.items.length > 0){
+    if($scope.genderSelected && $scope.percentageSelected && $scope.items.length > 0){
       // check if added item is duplicate, if so replace original
       for (let i = 0; i < $scope.items.length; i++) {
         if($scope.items[i].gender.id === $scope.genderSelected.id){
@@ -42,8 +56,9 @@ module.exports = angular.module('app', [])
         }
       };
     }
+
     // if not duplicate, add new one
-    if(!isDuplicate){
+    if($scope.genderSelected && $scope.percentageSelected && !isDuplicate){
       $scope.items.push({ 
         'gender' : $scope.genderSelected,
         'percentage' : $scope.percentageSelected
@@ -66,9 +81,10 @@ module.exports = angular.module('app', [])
 
   //when select gender, update percentage options
   $scope.updateOptions = () => {
-    // only check when existed
-    if($scope.items.length > 0){
+    // only check when genderSelected and items existed
+    if($scope.genderSelected && $scope.items.length > 0){
       for (let i = 0; i < $scope.items.length; i++) {
+        //console.log($scope.genderSelected.id, $scope.items[i].gender.id);
         // if female, check male percentage and vice versa
         if($scope.genderSelected.id != $scope.items[i].gender.id){
           // count max percentage value
