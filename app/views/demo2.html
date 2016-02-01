@@ -5,6 +5,7 @@
         <title>title</title>
         <link rel="stylesheet" href="/build/stylesheets/base.css">
         <link rel="stylesheet" href="/build/stylesheets/theme-green.css">
+        <script src="/build/javascripts/vendor.bundle.js" type="text/javascript" charset="utf-8"></script>
     </head>
 
     <body class="theme-base theme-green demo2">
@@ -12,29 +13,33 @@
             <div class="wrapper-top base-line">
                 <h1 class="text-title">Demo 2</h1>
                 <div ng-controller="chooseGender">
-                    <div class="table table-simple">
+                    <div class="table table-simple table-gender">
                         <div class="tr">
                             <div class="th th-gender">Gender</div>
                             <div class="th th-percentage">Percentage</div>
                             <div class="th th-remove"></div>
                         </div>
-                        <div class="tr" ng-repeat="item in items">
+                        <div class="tr" ng-repeat="item in items" ng-cloak>
                             <div class="td">{{item.gender.text}}</div>
                             <div class="td">{{item.percentage.text}}</div>
                             <div class="td"><button class="btn btn-sm btn-gray" ng-click="remove(item)">Remove</button></div>
                         </div>
                         <div class="tr tr-gray">
                             <div class="td">
-                                <select ng-model="genderSelected" ng-options="g.text for g in genders track by g.id" ng-change="updateOptions()">
-                                    <option value="">Choose a gender</option>
-                                </select>
-                                <span class="text-hint" ng-class="genderRequired">required</span>
+                                <div class="btn-select">
+                                    <select class="select" ng-model="genderSelected" ng-options="g.text for g in genders track by g.id" ng-change="updateOptions()">
+                                        <option value="">Choose a gender</option>
+                                    </select>
+                                </div>
+                                <div class="text-hint" ng-class="genderRequired">required</div>
                             </div>
                             <div class="td">
-                                <select ng-model="percentageSelected" ng-options="p.text disable when p.isDisable == true for p in percentages track by p.value">
-                                    <option value="">Choose a percentage</option>
-                                </select>
-                                <span class="text-hint" ng-class="percentageRequired">required</span>
+                                <div class="btn-select">
+                                    <select class="select" ng-model="percentageSelected" ng-options="p.text disable when p.isDisable == true for p in percentages track by p.value">
+                                        <option value="">Choose a percentage</option>
+                                    </select>
+                                </div>
+                                <div class="text-hint" ng-class="percentageRequired">required</div>
                             </div>
                             <div class="td">
                                  <button class="btn btn-sm btn-green" ng-click="addRow()">ADD</button>
@@ -44,11 +49,10 @@
                 </div>
             </div>
             <div class="wrapper-btm">
-                <a href="/app/views/index.html" class="btn btn-lg btn-back">BACK TO HOME PAGE</a>
+                <a href="/app/views/index.html" class="btn btn-lg btn-green btn-back">BACK TO HOME PAGE</a>
             </div>
         </div>
         
-        <script src="/build/javascripts/vendor.bundle.js" type="text/javascript" charset="utf-8"></script>
         <script src="/build/javascripts/demo2.bundle.js" type="text/javascript" charset="utf-8"></script>
 
     </body>

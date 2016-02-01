@@ -9,6 +9,14 @@
   }
 }
 
+.arrowBottom(@width, @height, @color){
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: @height @width/2 0 @width/2;
+  border-color: @color transparent transparent transparent;
+}
+
 .btnSize(@padding){
     padding: @padding;
 }
@@ -17,8 +25,5 @@
     background-color: @light-color;
     .text-title{
         color: @dark-color;
-    }
-    .btn-back{
-        background-color: @color;
     }
 }

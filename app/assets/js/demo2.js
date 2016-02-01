@@ -2,6 +2,8 @@
 
 module.exports = angular.module('demo2', [])
 .controller('chooseGender', ($scope) => {
+  // results
+  $scope.items = [];
 
   $scope.genderSelected = null;
   $scope.genders = [
@@ -23,9 +25,6 @@ module.exports = angular.module('demo2', [])
     {value: 90, text: '90%', isDisable: false},
     {value: 100, text: '100%', isDisable: false}
   ];
-
-  // results
-  $scope.items = [];
 
   //add item
   $scope.addRow = () => {
@@ -83,23 +82,30 @@ module.exports = angular.module('demo2', [])
   $scope.updateOptions = () => {
     // only check when genderSelected and items existed
     if($scope.genderSelected && $scope.items.length > 0){
-      for (let i = 0; i < $scope.items.length; i++) {
-        //console.log($scope.genderSelected.id, $scope.items[i].gender.id);
-        // if female, check male percentage and vice versa
-        if($scope.genderSelected.id != $scope.items[i].gender.id){
-          // count max percentage value
-          let maxValue = 100 - $scope.items[i].percentage.value;
-          // set options isDisable status 
-          for (let j = $scope.percentages.length - 1; j >= 0; j--) {
-            if($scope.percentages[j].value > maxValue){
-              $scope.percentages[j].isDisable = true;
-            }else{
-              $scope.percentages[j].isDisable = false;
-            }
-          };
+      //if only one item and match the gender set opitons all enabled
+      if($scope.items.length === 1 && $scope.genderSelected.id === $scope.items[0].gender.id){
+        for (let j = $scope.percentages.length - 1; j >= 0; j--) {
+          $scope.percentages[j].isDisable = false;
         }
+      }else{
+        for (let i = 0; i < $scope.items.length; i++) {
+          //console.log($scope.genderSelected.id, $scope.items[i].gender.id);
+          // if female, check male percentage and vice versa
+          if($scope.genderSelected.id != $scope.items[i].gender.id){
+            // count max percentage value
+            let maxValue = 100 - $scope.items[i].percentage.value;
+            // set options isDisable status 
+            for (let j = $scope.percentages.length - 1; j >= 0; j--) {
+              if($scope.percentages[j].value > maxValue){
+                $scope.percentages[j].isDisable = true;
+              }else{
+                $scope.percentages[j].isDisable = false;
+              }
+            };
+          }
 
-      };
+        };
+      }
     }
   };
 });
