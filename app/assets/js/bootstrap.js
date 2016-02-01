@@ -2,10 +2,11 @@
 'use strict';
 
 require('./common.js')();
-var appModule = require('./main');
+var demo1 = require('./demo1');
+var demo2 = require('./demo2');
 
 angular.element(document).ready(function () {
-  angular.bootstrap(document, [appModule.name], {
+  angular.bootstrap(document, [demo1.name, demo2.name], {
     //strictDi: true
   });
 });

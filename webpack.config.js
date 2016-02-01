@@ -8,7 +8,8 @@ module.exports = {
     "theme-red": ["./app/assets/css/theme-red.js"],
     "theme-green": ["./app/assets/css/theme-green.js"],
     "vendor": ["./app/assets/js/bootstrap.js"],
-    "app": ["./app/assets/js/main.js",]
+    "demo1": ["./app/assets/js/demo1.js",],
+    "demo2": ["./app/assets/js/demo2.js",]
   },
   output: {
     path: path.resolve(__dirname, "build"),

@@ -1,4 +1,6 @@
 @import "./var.less";
+@import "./mixins.less";
+
 button{
     border: none;
     outline: none;
@@ -18,8 +20,28 @@ button{
     }
 }
 
+.pull-left{
+    float: left;
+}
+
+.pull-right{
+    float: right;
+}
+
+.clearfix{
+    .clearfix();
+}
+
+.col-2{
+    width: 100 / 2%;
+}
+
+.pad-vertical-15{
+    padding: 15px 0;
+}
+
 .wrapper{
-    width: 920px;
+    width: 580px;
     margin: 170px auto 300px auto;
     padding: 20px;
     background-color: white;

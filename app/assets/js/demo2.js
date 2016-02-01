@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = angular.module('app', [])
+module.exports = angular.module('demo2', [])
 .controller('chooseGender', ($scope) => {
 
   $scope.genderSelected = null;

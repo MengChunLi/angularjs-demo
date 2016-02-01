@@ -7,10 +7,24 @@
         <link rel="stylesheet" href="/build/stylesheets/theme-red.css">
     </head>
 
-    <body class="theme-base theme-red">
+    <body class="theme-base theme-red demo1">
         <div class="wrapper">
             <div class="wrapper-top base-line">
                 <h1 class="text-title">Demo 1</h1>
+                <div ng-controller="findPharmacy" class="pad-vertical-15 loading" ng-class="{loading: isLoading}">
+                    <div class="pull-left col-2">
+                        <label class="label-title">Find Pharmacy:</label>
+                        <select ng-model="pharmacy" ng-change="changePharmacy()" ng-options="phar.organisation_name for phar in myData track by phar.organisation_id">
+                        </select>
+                    </div>
+                    <div class="pull-right col-2">
+                        <label class="label-title">Address:</label>
+                        <div class="text-address">
+                            <span ng-repeat="a in address track by $index" ng-if="a">{{a}}{{$last ? '' : ', '}}</span>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
             </div>
             <div class="wrapper-btm">
                 <a href="/app/views/index.html" class="btn btn-lg btn-back">BACK TO HOME PAGE</a>
@@ -18,7 +32,7 @@
         </div>
         
         <script src="/build/javascripts/vendor.bundle.js" type="text/javascript" charset="utf-8"></script>
-        <script src="/build/javascripts/app.bundle.js" type="text/javascript" charset="utf-8"></script>
+        <script src="/build/javascripts/demo1.bundle.js" type="text/javascript" charset="utf-8"></script>
 
     </body>
 </html>
