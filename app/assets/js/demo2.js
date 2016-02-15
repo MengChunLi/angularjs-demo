@@ -30,11 +30,12 @@ module.exports = angular.module('demo2', [])
   $scope.addRow = () => {
 
     // check if genderSelected is defined, or show required text
-    if(!$scope.genderSelected){
-      $scope.genderRequired = 'active';
-    }else{
+    if($scope.genderSelected === $scope.genders[0] || $scope.genderSelected === $scope.genders[1]){
       $scope.genderRequired = '';
+    }else{
+      $scope.genderRequired = 'active';
     }
+    // console.log($scope.genderSelected);
     // check if percentageSelected is defined, or show required text
     if(!$scope.percentageSelected){
       $scope.percentageRequired = 'active';
